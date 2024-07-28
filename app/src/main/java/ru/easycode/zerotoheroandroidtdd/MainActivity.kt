@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.incrementButton)
         val root = findViewById<LinearLayout>(R.id.rootLayout)
         button.setOnClickListener {
-            viewModel.increment()
+            viewModel.increment(textView.text.toString())
         }
 
         viewModel.liveData.observe(this, Observer { value ->
-            textView.text = value.toString()
+            textView.text = value
         })
 
     }

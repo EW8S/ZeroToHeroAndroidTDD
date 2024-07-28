@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel: ViewModel() {
-    private val _livedata = MutableLiveData<Int>(0)
-    val liveData: LiveData<Int> = _livedata
 
-    var count = 0
 
-    fun increment(){
-        count += 2
-        _livedata.value = count
+    private val _livedata = MutableLiveData<String>("0")
+    val liveData: LiveData<String> = _livedata
+
+    private val count = Count.Base(2)
+
+    fun increment(text: String) {
+        _livedata.value = count.increment(text)
     }
 }
